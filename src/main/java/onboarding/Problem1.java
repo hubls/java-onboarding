@@ -7,10 +7,6 @@ class Problem1 {
     static final int CRONG_WINNER = 2;
     static final int DRAW = 0;
     static final int EXCEPTION = -1;
-
-    static final int LEFT_PAGE = 0;
-    static final int RIGHT_PAGE = 1;
-
     static final int MINIMUM_PAGE_NUMBER = 3;
     static final int MAXIMUM_PAGE_NUMBER = 398;
 
@@ -82,6 +78,33 @@ class Problem1 {
 
         return 1;
     }
+
+
+    private static int compareScores(List<Integer> page1, List<Integer> page2) {
+        int validateCheck = isInvalidInput(page1, page2);
+        if (validateCheck == -1) {
+            return -1;
+        }
+
+        int pobiPage = compareTwoNumber(page1);
+        int crongPage = compareTwoNumber(page2);
+
+        if (pobiPage > crongPage) {
+            return POBI_WINNER;
+        }
+
+        if (pobiPage == crongPage) {
+            return DRAW;
+        }
+
+        if (pobiPage < crongPage) {
+            return CRONG_WINNER;
+        }
+
+        return -1;
+    }
+
+
 
 
 
