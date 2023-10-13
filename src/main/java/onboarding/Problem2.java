@@ -7,7 +7,7 @@ public class Problem2 {
         return answer;
     }
 
-    public static int getSecondTrim(String cryptogram, int firstTrim) {
+    private static int getSecondTrim(String cryptogram, int firstTrim) {
         int secondTrim = firstTrim + 1;
         while ((cryptogram.charAt(firstTrim) == cryptogram.charAt(secondTrim)) && (secondTrim < cryptogram.length() - 1)) {
             secondTrim += 1;
@@ -15,7 +15,7 @@ public class Problem2 {
         return secondTrim;
     }
 
-    public static String decryptCryptogram(String cryptogram) {
+    private static String decryptCryptogram(String cryptogram) {
         int stringCount = 0;
         int cryptogramLength = cryptogram.length();
 
