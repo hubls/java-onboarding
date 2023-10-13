@@ -31,6 +31,24 @@ class Problem1 {
         return -1;
     }
 
+    private static int compareTwoNumber(List<Integer> twoPage) {
+        int firstPage = twoPage.get(0);
+        int secondPage = twoPage.get(1);
+
+        int firstPageOperationResult = calculateAndReturnMaxResult(firstPage);
+        int secondPageOperationResult = calculateAndReturnMaxResult(secondPage);
+
+        if (firstPageOperationResult >= secondPageOperationResult) {
+            return firstPageOperationResult;
+        }
+
+        if (firstPageOperationResult <= secondPageOperationResult) {
+            return secondPageOperationResult;
+        }
+
+        return -1;
+    }
+
 
 
 }
