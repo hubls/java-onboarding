@@ -34,7 +34,7 @@ class Problem1 {
             return multiplyNumber;
         }
 
-        return -1;
+        return EXCEPTION;
     }
 
     private static int compareTwoNumber(List<Integer> twoPage) {
@@ -52,7 +52,7 @@ class Problem1 {
             return secondPageOperationResult;
         }
 
-        return -1;
+        return EXCEPTION;
     }
 
     private static int isInvalidInput(List<Integer> pobi, List<Integer> crong) {
@@ -82,8 +82,8 @@ class Problem1 {
 
     private static int compareScores(List<Integer> page1, List<Integer> page2) {
         int validateCheck = isInvalidInput(page1, page2);
-        if (validateCheck == -1) {
-            return -1;
+        if (validateCheck == EXCEPTION) {
+            return EXCEPTION;
         }
 
         int pobiPage = compareTwoNumber(page1);
@@ -101,7 +101,7 @@ class Problem1 {
             return CRONG_WINNER;
         }
 
-        return -1;
+        return EXCEPTION;
     }
 
 
