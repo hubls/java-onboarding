@@ -3,6 +3,16 @@ package onboarding;
 import java.util.List;
 
 class Problem1 {
+    static final int POBI_WINNER = 1;
+    static final int CRONG_WINNER = 2;
+    static final int DRAW = 0;
+    static final int EXCEPTION = -1;
+
+    static final int LEFT_PAGE = 0;
+    static final int RIGHT_PAGE = 1;
+
+    static final int MINIMUM_PAGE_NUMBER = 3;
+    static final int MAXIMUM_PAGE_NUMBER = 398;
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
         int answer = Integer.MAX_VALUE;
@@ -48,6 +58,32 @@ class Problem1 {
 
         return -1;
     }
+
+    private static int isInvalidInput(List<Integer> pobi, List<Integer> crong) {
+        if (pobi.size() != 2 || crong.size() != 2) {
+            return EXCEPTION;
+        }
+
+        if (((pobi.get(0) + 1) != pobi.get(1)) || ((crong.get(0) + 1) != crong.get(1))) {
+            return EXCEPTION;
+        }
+
+        if ((pobi.get(0) < MINIMUM_PAGE_NUMBER) || (pobi.get(1) > MAXIMUM_PAGE_NUMBER)) {
+            return EXCEPTION;
+        }
+
+        if ((crong.get(0) < MINIMUM_PAGE_NUMBER) || (crong.get(1) > MAXIMUM_PAGE_NUMBER)) {
+            return EXCEPTION;
+        }
+
+        if ((pobi.get(0) % 2 == 0) || (crong.get(0) % 2 == 0)) {
+            return EXCEPTION;
+        }
+
+        return 1;
+    }
+
+
 
 
 
