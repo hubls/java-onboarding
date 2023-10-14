@@ -9,7 +9,15 @@ public class Problem3 {
         return answer;
     }
 
-    public static int countClap(int number) {
+    private static boolean isValidInput(int number) {
+        return number >= 1 && number <= 10000;
+    }
+
+    private static int countClap(int number) {
+        if (isValidInput(number)) {
+            return -1;
+        }
+
         int count = 0;
         while (number != 0) {
             String numberAsString = Integer.toString(number);
