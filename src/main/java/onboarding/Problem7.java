@@ -23,4 +23,10 @@ public class Problem7 {
         }
         return userFriends;
     }
+
+    private static List<String> deleteUserFriend(List<String> visitors, List<String> userFriends) {
+        List<String> mutableVisitors = new ArrayList<>(visitors); // visitors를 수정 가능한 리스트로 복사
+        mutableVisitors.removeAll(userFriends);
+        return mutableVisitors;
+    }
 }
