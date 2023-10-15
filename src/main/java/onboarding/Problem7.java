@@ -5,6 +5,7 @@ import java.util.*;
 public class Problem7 {
     public static List<String> solution(String user, List<List<String>> friends, List<String> visitors) {
         List<String> answer = Collections.emptyList();
+        answer = recommendFriend(user, friends, visitors);
         return answer;
     }
 
@@ -22,6 +23,26 @@ public class Problem7 {
             }
         }
         return userFriends;
+    }
+    private static List<String> userFriendsFriendsList(String user, List<String> userfriends, List<List<String>> friends) {
+        List<String> FriendsFriends = new ArrayList<>();
+
+        for (int i = 0; i < userfriends.size(); i++) {
+            String userfriend = userfriends.get(i);
+
+            for (int j = 0; j < friends.size(); j++) {
+                List<String> friendRelationship = friends.get(j);
+
+                if ((friendRelationship.get(0) == userfriend) && (friendRelationship.get(1) != user))  {
+                    FriendsFriends.add(friendRelationship.get(1));
+                }
+
+                if ((friendRelationship.get(1) == userfriend) && (friendRelationship.get(0) != user)) {
+                    FriendsFriends.add(friendRelationship.get(0));
+                }
+            }
+        }
+        return FriendsFriends;
     }
 
     private static List<String> deleteUserFriend(List<String> visitors, List<String> userFriends) {
@@ -69,6 +90,15 @@ public class Problem7 {
             }
         }
         return getSortScore(score);
+    }
+
+    private static List<String> recommendFriend(String user, List<List<String>> friends, List<String> visitors) {
+        List<String> userFriends = userFriendsList(user, friends);
+        visitors = deleteUserFriend(visitors, userFriends);
+        List<String> userFriendsFriends = userFriendsFriendsList(user, userFriends, friends);
+        List<String> friendScore = getFriendScore(userFriendsFriends, visitors);
+
+        return friendScore;
     }
 
 }
