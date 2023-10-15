@@ -14,7 +14,7 @@ public class Problem3 {
     }
 
     private static int countClap(int number) {
-        if (isValidInput(number)) {
+        if (!isValidInput(number)) {
             return -1;
         }
 
