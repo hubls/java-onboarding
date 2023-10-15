@@ -10,4 +10,9 @@ public class Problem4 {
         char reverseChar = (char) ('A' + 'Z' - word);
         return reverseChar;
     }
+
+    private static char getReverseLowerChar(char word) {
+        char reverseChar = (char) ('a' + 'z' - word);
+        return reverseChar;
+    }
 }
