@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Problem6 {
     public static List<String> solution(List<List<String>> forms) {
-        List<String> answer = List.of("answer");
+        List<String> answer = duplicateNickName(forms);
         return answer;
     }
 
@@ -35,6 +35,23 @@ public class Problem6 {
         }
 
         return false;
+    }
+
+    private static List<String> duplicateNickName(List<List<String>> forms) {
+        List<String> duplicateNicknamePeople = new ArrayList<>();
+        int theNumberOfCrew = forms.size();
+
+        for (int i = 0; i < theNumberOfCrew; i++) {
+            boolean duplicate = duplicateCheck(forms.get(i), i, forms, theNumberOfCrew);
+
+
+            if (duplicate == true) {
+                duplicateNicknamePeople.add(forms.get(i).get(0));
+            }
+        }
+
+        Collections.sort(duplicateNicknamePeople);
+        return duplicateNicknamePeople;
     }
 
 }
